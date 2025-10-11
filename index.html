@@ -29,21 +29,65 @@
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project">
-      <img src="assets/project1.jpg" alt="Microelectronics project" />
-      <div>
-        <h3>Raspberry Pi Sensor Board</h3>
-        <p>Custom PCB for signal capture and analysis.</p>
-        <a href="#">View on GitHub</a>
-      </div>
+    <div class="project-filters" aria-label="Project filters">
+      <button class="filter-tab active" data-filter="all" type="button">All</button>
+      <button class="filter-tab" data-filter="hardware" type="button">Hardware</button>
+      <button class="filter-tab" data-filter="software" type="button">Software</button>
+      <button class="filter-tab" data-filter="security" type="button">Security</button>
     </div>
-    <div class="project">
-      <img src="assets/project2.jpg" alt="Cybersecurity dashboard" />
-      <div>
-        <h3>Network Monitor Dashboard</h3>
-        <p>Python + Flask app visualizing live network activity.</p>
-        <a href="#">View on GitHub</a>
-      </div>
+    <div class="project-grid">
+      <article class="project-card" data-category="hardware software">
+        <div class="card-inner">
+          <div class="card-image">
+            <img src="assets/project1.jpg" alt="Microelectronics project" />
+          </div>
+          <div class="card-content">
+            <h3>Raspberry Pi Sensor Board</h3>
+            <p class="teaser">Rapid prototyping of a modular sensor board for edge analytics.</p>
+            <ul class="key-stats">
+              <li><span>Tools:</span> Raspberry Pi, KiCad, Python</li>
+              <li><span>Role:</span> Lead Hardware Prototyper</li>
+              <li><span>Outcome:</span> 40% faster signal diagnostics in the lab</li>
+            </ul>
+            <a class="dive-deeper" data-target="project-sensor" href="#project-sensor">Dive Deeper</a>
+          </div>
+        </div>
+        <div class="card-detail" id="project-sensor" aria-hidden="true">
+          <p>
+            Designed a multilayer PCB and firmware bundle enabling technicians to
+            capture, visualize, and export high-resolution sensor data on-site.
+            The modular architecture supports hot-swappable probes and remote
+            calibration scripts for rapid field deployment.
+          </p>
+          <a class="close-detail" href="#">Close</a>
+        </div>
+      </article>
+      <article class="project-card" data-category="software security">
+        <div class="card-inner">
+          <div class="card-image">
+            <img src="assets/project2.jpg" alt="Cybersecurity dashboard" />
+          </div>
+          <div class="card-content">
+            <h3>Network Monitor Dashboard</h3>
+            <p class="teaser">Unified visibility into OT and IT traffic anomalies.</p>
+            <ul class="key-stats">
+              <li><span>Tools:</span> Python, Flask, InfluxDB</li>
+              <li><span>Role:</span> Full-Stack Developer</li>
+              <li><span>Outcome:</span> Reduced alert triage time by 55%</li>
+            </ul>
+            <a class="dive-deeper" data-target="project-monitor" href="#project-monitor">Dive Deeper</a>
+          </div>
+        </div>
+        <div class="card-detail" id="project-monitor" aria-hidden="true">
+          <p>
+            Implemented packet capture pipelines, automated enrichment, and a
+            responsive dashboard with anomaly detection heuristics tuned for
+            industrial networks. Delivered audit-ready reporting and OT-safe
+            incident response playbooks for the operations team.
+          </p>
+          <a class="close-detail" href="#">Close</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -67,5 +111,47 @@
   <footer>
     <p>© 2025 Ronny Paz</p>
   </footer>
+  <script>
+    const filterTabs = document.querySelectorAll(".filter-tab");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const filter = tab.dataset.filter;
+        filterTabs.forEach((btn) => btn.classList.toggle("active", btn === tab));
+        projectCards.forEach((card) => {
+          const categories = card.dataset.category.split(" ").filter(Boolean);
+          const matches = filter === "all" || categories.includes(filter);
+          card.classList.toggle("hidden", !matches);
+        });
+      });
+    });
+
+    const toggleDetail = (targetId) => {
+      const detail = document.getElementById(targetId);
+      if (!detail) return;
+      const isOpen = detail.classList.contains("open");
+      detail.classList.toggle("open", !isOpen);
+      detail.setAttribute("aria-hidden", isOpen ? "true" : "false");
+    };
+
+    document.querySelectorAll(".dive-deeper").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetId = link.dataset.target;
+        toggleDetail(targetId);
+      });
+    });
+
+    document.querySelectorAll(".close-detail").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const detail = link.closest(".card-detail");
+        if (!detail) return;
+        detail.classList.remove("open");
+        detail.setAttribute("aria-hidden", "true");
+      });
+    });
+  </script>
 </body>
 </html>
