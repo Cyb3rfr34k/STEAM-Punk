@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grimoire Journal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="ambient-glow"></div>
+    <main class="journal">
+      <header class="journal__header">
+        <div>
+          <p class="journal__subtitle">The Archivist's Ledger</p>
+          <h1>Midnight Grimoire Journal</h1>
+          <p class="journal__description">
+            Capture midnight musings, secret rituals, and gentle reflections within warm, timeworn pages.
+          </p>
+        </div>
+        <div class="journal__sigil" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </header>
+
+      <section class="journal__pages">
+        <div class="journal__panel">
+          <h2>New Entry</h2>
+          <form class="entry-form" id="entry-form">
+            <label>
+              Title
+              <input type="text" name="title" placeholder="Whispered Thought" required />
+            </label>
+            <label>
+              Mood
+              <select name="mood">
+                <option>Serene</option>
+                <option>Curious</option>
+                <option>Restless</option>
+                <option>Inspired</option>
+                <option>Grateful</option>
+              </select>
+            </label>
+            <label>
+              Reflection
+              <textarea
+                name="content"
+                rows="5"
+                placeholder="Ink the memory in amber light..."
+                required
+              ></textarea>
+            </label>
+            <button type="submit">Seal Entry</button>
+          </form>
+          <div class="media-vault">
+            <div class="media-vault__header">
+              <h3>Media Vault</h3>
+              <p>Attach sketches, photos, or voice notes stored locally with your entry.</p>
+            </div>
+            <label class="media-vault__upload">
+              Upload relics
+              <input type="file" id="media-upload" multiple accept="image/*,audio/*" />
+            </label>
+            <ul class="media-vault__list" id="media-list">
+              <li>Hand-drawn sigil (sketch.png)</li>
+              <li>Evening rain (voice-note.m4a)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="journal__panel journal__panel--entries">
+          <h2>Recent Entries</h2>
+          <ul class="entries" id="entries">
+            <li class="entry">
+              <div class="entry__meta">
+                <span>Twilight</span>
+                <span>Serene · 18 Oct 1891</span>
+              </div>
+              <p>
+                The candlelight caught the gilded edges of the book, and the room hummed with a gentle
+                stillness.
+              </p>
+            </li>
+            <li class="entry">
+              <div class="entry__meta">
+                <span>Brass Lanterns</span>
+                <span>Inspired · 21 Oct 1891</span>
+              </div>
+              <p>
+                Rusted gears outside the atelier sang in rhythm, a reminder that even iron can dream.
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="journal__panel journal__panel--lore">
+          <h2>Lore Codex</h2>
+          <p class="panel-intro">
+            Chronicle characters, places, and artifacts to keep your worldbuilding threads aligned.
+          </p>
+          <form class="lore-form" id="lore-form">
+            <label>
+              Codex Title
+              <input type="text" name="lore-title" placeholder="The Clockwork Conservatory" required />
+            </label>
+            <label>
+              Category
+              <select name="lore-category">
+                <option>Character</option>
+                <option>Location</option>
+                <option>Artifact</option>
+                <option>Ritual</option>
+                <option>Faction</option>
+              </select>
+            </label>
+            <label>
+              Lore Notes
+              <textarea
+                name="lore-notes"
+                rows="4"
+                placeholder="Details, histories, and whispers..."
+                required
+              ></textarea>
+            </label>
+            <button type="submit">Archive Lore</button>
+          </form>
+          <ul class="lore-list" id="lore-list">
+            <li>
+              <div class="lore-list__meta">
+                <span>The Atlas of Aether</span>
+                <span>Artifact</span>
+              </div>
+              <p>Maps the shifting currents of airships and ley lines across the brass skies.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
