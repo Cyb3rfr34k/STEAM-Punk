@@ -1,0 +1,58 @@
+narrator:
+  name: "Jonah Vale"
+  role: "Entry-level SOC analyst (night shift)"
+  motivations:
+    - "Prove he belongs in the SOC despite impostor syndrome."
+    - "Find a system in chaos: a clean rule, a repeatable ritual."
+  flaws:
+    - "Petty, jealous of competence, defensive about mistakes."
+    - "Over-thinks motives and under-shares feelings."
+  voice_notes:
+    - "Direct address to reader; confessing yet combative."
+    - "Analytical, self-contradictory, bitter humor."
+    - "Treats checklists as survival, not virtue."
+
+senior_analyst_mentor:
+  name: "Mara Chen"
+  role: "Senior analyst, rotating night coverage"
+  traits:
+    - "Steady and exacting, never theatrical."
+    - "Teaches by asking uncomfortable questions."
+  function:
+    - "Counterpoint to narrator’s spirals; models healthy skepticism."
+
+soc_manager:
+  name: "Devin Knox"
+  role: "SOC manager (metrics-focused)"
+  traits:
+    - "Obsessed with dashboards, closure times, and weekly numbers."
+    - "Not cruel; simply allergic to ambiguity."
+  function:
+    - "Represents institutional pressure and KPI distortions."
+
+ir_lead:
+  name: "Sofia Ramires"
+  role: "Incident Response lead"
+  traits:
+    - "Calm, surgical, unflappable under stress."
+    - "Protects the team from overreaction while insisting on precision."
+  function:
+    - "Gatekeeper for escalation; emphasizes evidence-driven action."
+
+recurring_end_user:
+  name: "Alex Imani"
+  role: "Operations coordinator"
+  traits:
+    - "Busy, well-meaning, occasionally careless with email."
+    - "Not a caricature; is polite but pressured."
+  function:
+    - "Triggers real incidents and false positives; humanizes the stakes."
+
+shadow_adversary:
+  name: "The Quiet Operator"
+  role: "Inferred adversary presence via TTPs"
+  traits:
+    - "Understated, patient, lives in the gaps."
+    - "Leaves soft fingerprints: living-off-the-land, token theft hints."
+  function:
+    - "Ghost of the plot; not seen directly, only through artifacts."
